@@ -1,0 +1,19 @@
+name: shopping-store
+services:
+  tutorial:
+    image: tutorial
+    container_name: tutorial
+    build: ./tutorial
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:16-alpine
+    container_name: db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=tutorial
