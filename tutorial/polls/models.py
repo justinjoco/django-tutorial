@@ -7,7 +7,7 @@ class Question(Model):
     pub_date = DateTimeField("date published")
 
     def __str__(self):
-        return self.question_text
+        return f"{self.pk} : {self.question_text}"
     
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
