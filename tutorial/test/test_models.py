@@ -2,7 +2,7 @@ from django.test import TestCase
 import datetime
 
 from django.utils import timezone
-from .models import Question
+from polls.models import Question
 # Create your tests here.
 
 class QuestionModelTests(TestCase):
@@ -20,3 +20,4 @@ class QuestionModelTests(TestCase):
         time = timezone.now() - datetime.timedelta(hours = 23, minutes = 59)
         recent_question = Question(pub_date = time)
         self.assertIs(recent_question.was_published_recently(), True)
+
